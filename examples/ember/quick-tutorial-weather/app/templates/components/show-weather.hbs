@@ -1,0 +1,7 @@
+{{#each weatherData as |weather|}}
+  <div class="{{if weather.rainy 'weather' 'weather sunny'}}">
+    <h4>{{weather.city}}</h4>
+    <div>{{weather.temp}}</div>
+    <div>{{if weather.rainy 'Rainy' 'Sunny'}}</div>
+  </div>
+{{/each}}

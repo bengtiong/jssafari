@@ -1,0 +1,13 @@
+<h1>Weather Forecast</h1>
+<p>Sample weather forecast will appear here.</p>
+
+<h2>Warning</h2>
+{{#each model.warning as |warning|}}
+  <div>
+    <div class="{{if warning.red 'warningRed' 'warningYellow'}}">{{warning.level}} warning: {{warning.description}}</div>
+  </div>
+{{/each}}
+
+<h2>Weather</h2>
+{{show-weather weatherData=model.weather}}
+
