@@ -1,0 +1,56 @@
+body {
+    background: url(../images/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #fff;
+    padding: 20px;
+  }
+  a {
+    color: #fff;
+  }
+  .forecastBtn {
+    background-color: #133a74;
+    padding: 10px;
+    width: 200px;
+  }
+  .box {
+    width: 800px;
+    height: 500px;
+    padding: 20px;
+    color: #fff;
+  }
+  .welcome {
+    background-color: #053a11
+  }
+  .forecast {
+    background-color: #0c2461;
+  }
+  .weather {
+    background: url(../images/rainy.png) no-repeat;
+    background-size: 110px;
+    padding-left: 130px;
+    border: 2px dotted #fff;
+    border-radius: 10px; 
+    height: 110px 
+  }
+  .sunny {
+    background: url(../images/sunny.png) no-repeat;
+    background-size: 110px;
+  }
+  .warningRed {
+    background-color: #e43f16;
+    padding: 10px;
+    color: rgb(14, 10, 44);
+  }
+  .warningYellow {
+    background-color: #eff311;
+    padding: 10px;
+    color: rgb(14, 10, 44);
+  }
+  @media only screen and (max-width: 800px) {
+    .box {
+      width: auto;
+      height: auto;
+    }
+  }
+  
