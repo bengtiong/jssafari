@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" />
+  <title>Knockout : weather portal</title>
+
+  <!-- Styling -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background: url(images/bg.jpg);
+    }
+  </style>
+
+  <!-- JavaScript libraries -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="javascript/mockserver.js"></script>
+  <script type="text/javascript" src="javascript/weather.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <p class="navbar-text">My Weather Portal</p>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li data-bind="css: {active: WeatherPortal.isActivePage('Home')}">
+              <a href="#" data-bind="click: WeatherPortal.setActivePage.bind($data, 'Home')">Home</a>
+            </li>
+            <li data-bind="css: {active: WeatherPortal.isActivePage('Warning')}">
+              <a href="#" data-bind="click: WeatherPortal.setActivePage.bind($data, 'Warning')">Warning</a>
+            </li>
+            <li data-bind="css: {active: WeatherPortal.isActivePage('About')}">
+              <a href="#" data-bind="click: WeatherPortal.setActivePage.bind($data, 'About')">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Home content -->
+    <div id="home" data-bind="visible: WeatherPortal.isActivePage('Home')">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading" data-bind="text: WeatherPortal.location()"></div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>Weather</th>
+                    <th>Temperature &#8451;</th>
+                    <th>precipitation</th>
+                    <th>Humidity</th>
+                    <th>Wind</th>
+                  </tr>
+                </thead>
+                <tbody data-bind="foreach: WeatherPortal.weather.forecasts">
+                  <tr>
+                    <td data-bind="text: dayOfWeek"></td>
+                    <td data-bind="text: weather"></td>
+                    <td data-bind="text: temp"></td>
+                    <td data-bind="text: precipitation"></td>
+                    <td data-bind="text: humidity"></td>
+                    <td data-bind="text: wind"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Warning content -->
+    <div id="warning" data-bind="visible: WeatherPortal.isActivePage('Warning')">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading" data-bind="text: WeatherPortal.location()"></div>
+            <div class="panel-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Alert</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody data-bind="foreach: WeatherPortal.weather.warnings">
+                  <tr>
+                    <td data-bind="style: {color: alertLevel}">
+                      <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                    </td>
+                    <td data-bind="text: description"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About content -->
+    <div id="about" data-bind="visible: WeatherPortal.isActivePage('About')">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">JavaScript Safari Team</div>
+            <div class="panel-body">
+              This brought to you be the JavaScript Safari team. We hope you enjoy our quick tutorial.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
