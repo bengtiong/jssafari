@@ -8,7 +8,7 @@ ko.components.register('forecast', {
   <div class="row">\
     <div class="col-md-12">\
       <div class="panel panel-default">\
-        <div class="panel-heading" data-bind="text: WeatherPortal.location("></div>\
+        <div class="panel-heading" data-bind="text: location"></div>\
         <div class="panel-body">\
           <table class="table table-hover">\
             <thead>\
@@ -21,7 +21,7 @@ ko.components.register('forecast', {
                 <th>Wind</th>\
               </tr>\
             </thead>\
-            <tbody data-bind="foreach: WeatherPortal.weather.forecasts">\
+            <tbody data-bind="foreach: forecasts">\
               <tr>\
                 <td data-bind="text: dayOfWeek"></td>\
                 <td data-bind="text: weather"></td>\
