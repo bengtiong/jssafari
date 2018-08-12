@@ -5,14 +5,39 @@ define('weather-app/tests/app.lint-test', [], function () {
 
   QUnit.module('ESLint | app');
 
+  QUnit.test('adapters/application.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'adapters/application.js should pass ESLint\n\n');
+  });
+
   QUnit.test('app.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'app.js should pass ESLint\n\n');
   });
 
-  QUnit.test('components/show-weather.js', function (assert) {
+  QUnit.test('components/header-nav.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'components/show-weather.js should pass ESLint\n\n');
+    assert.ok(true, 'components/header-nav.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('components/weather-form.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'components/weather-form.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('models/forecast.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/forecast.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('models/warning.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/warning.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('models/weather.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/weather.js should pass ESLint\n\n');
   });
 
   QUnit.test('resolver.js', function (assert) {
@@ -25,20 +50,25 @@ define('weather-app/tests/app.lint-test', [], function () {
     assert.ok(true, 'router.js should pass ESLint\n\n');
   });
 
+  QUnit.test('routes/about.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/about.js should pass ESLint\n\n');
+  });
+
   QUnit.test('routes/forecast.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/forecast.js should pass ESLint\n\n');
   });
 
-  QUnit.test('routes/welcome.js', function (assert) {
+  QUnit.test('routes/warning.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'routes/welcome.js should pass ESLint\n\n');
+    assert.ok(true, 'routes/warning.js should pass ESLint\n\n');
   });
 });
-define('weather-app/tests/integration/components/show-weather-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
+define('weather-app/tests/integration/components/header-nav-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
   'use strict';
 
-  (0, _qunit.module)('Integration | Component | show-weather', function (hooks) {
+  (0, _qunit.module)('Integration | Component | header-nav', function (hooks) {
     (0, _emberQunit.setupRenderingTest)(hooks);
 
     (0, _qunit.test)('it renders', async function (assert) {
@@ -46,8 +76,8 @@ define('weather-app/tests/integration/components/show-weather-test', ['qunit', '
       // Handle any actions with this.set('myAction', function(val) { ... });
 
       await (0, _testHelpers.render)(Ember.HTMLBars.template({
-        "id": "dPe8P7uo",
-        "block": "{\"symbols\":[],\"statements\":[[1,[20,\"show-weather\"],false]],\"hasEval\":false}",
+        "id": "LK4MMYl+",
+        "block": "{\"symbols\":[],\"statements\":[[1,[20,\"header-nav\"],false]],\"hasEval\":false}",
         "meta": {}
       }));
 
@@ -55,8 +85,37 @@ define('weather-app/tests/integration/components/show-weather-test', ['qunit', '
 
       // Template block usage:
       await (0, _testHelpers.render)(Ember.HTMLBars.template({
-        "id": "m0Gp7RC/",
-        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"show-weather\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
+        "id": "knFnBAqm",
+        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"header-nav\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
+        "meta": {}
+      }));
+
+      assert.equal(this.element.textContent.trim(), 'template block text');
+    });
+  });
+});
+define('weather-app/tests/integration/components/weather-form-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
+  'use strict';
+
+  (0, _qunit.module)('Integration | Component | weather-form', function (hooks) {
+    (0, _emberQunit.setupRenderingTest)(hooks);
+
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "xaXq9+nX",
+        "block": "{\"symbols\":[],\"statements\":[[1,[20,\"weather-form\"],false]],\"hasEval\":false}",
+        "meta": {}
+      }));
+
+      assert.equal(this.element.textContent.trim(), '');
+
+      // Template block usage:
+      await (0, _testHelpers.render)(Ember.HTMLBars.template({
+        "id": "DHej2ufY",
+        "block": "{\"symbols\":[],\"statements\":[[0,\"\\n\"],[4,\"weather-form\",null,null,{\"statements\":[[0,\"        template block text\\n\"]],\"parameters\":[]},null],[0,\"    \"]],\"hasEval\":false}",
         "meta": {}
       }));
 
@@ -76,9 +135,14 @@ define('weather-app/tests/tests.lint-test', [], function () {
 
   QUnit.module('ESLint | tests');
 
-  QUnit.test('integration/components/show-weather-test.js', function (assert) {
+  QUnit.test('integration/components/header-nav-test.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'integration/components/show-weather-test.js should pass ESLint\n\n');
+    assert.ok(true, 'integration/components/header-nav-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('integration/components/weather-form-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'integration/components/weather-form-test.js should pass ESLint\n\n');
   });
 
   QUnit.test('test-helper.js', function (assert) {
@@ -86,21 +150,114 @@ define('weather-app/tests/tests.lint-test', [], function () {
     assert.ok(true, 'test-helper.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/adapters/application-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/adapters/application-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/models/forecast-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/forecast-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/models/warning-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/warning-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/models/weather-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/weather-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/routes/about-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/about-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/routes/forecast-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/forecast-test.js should pass ESLint\n\n');
   });
 
-  QUnit.test('unit/routes/welcome-test.js', function (assert) {
+  QUnit.test('unit/routes/warning-test.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'unit/routes/welcome-test.js should pass ESLint\n\n');
+    assert.ok(true, 'unit/routes/warning-test.js should pass ESLint\n\n');
   });
 });
-define('weather-app/tests/unit/routes/forecast-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+define('weather-app/tests/unit/adapters/application-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Adapter | application', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    // Replace this with your real tests.
+    (0, _qunit.test)('it exists', function (assert) {
+      let adapter = this.owner.lookup('adapter:application');
+      assert.ok(adapter);
+    });
+  });
+});
+define('weather-app/tests/unit/models/forecast-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Model | forecast', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    // Replace this with your real tests.
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let model = Ember.run(() => store.createRecord('forecast', {}));
+      assert.ok(model);
+    });
+  });
+});
+define('weather-app/tests/unit/models/warning-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Model | warning', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    // Replace this with your real tests.
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let model = Ember.run(() => store.createRecord('warning', {}));
+      assert.ok(model);
+    });
+  });
+});
+define('weather-app/tests/unit/models/weather-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Model | weather', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    // Replace this with your real tests.
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let model = Ember.run(() => store.createRecord('weather', {}));
+      assert.ok(model);
+    });
+  });
+});
+define('weather-app/tests/unit/routes/about-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Route | about', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:about');
+      assert.ok(route);
+    });
+  });
+});
+define('weather-app/tests/unit/routes/forecast-test', ['qunit', 'ember-qunit', 'ember-cli-mirage/test-support/setup-mirage'], function (_qunit, _emberQunit, _setupMirage) {
   'use strict';
 
   (0, _qunit.module)('Unit | Route | forecast', function (hooks) {
     (0, _emberQunit.setupTest)(hooks);
+    (0, _setupMirage.setupMirage)(hooks);
 
     (0, _qunit.test)('it exists', function (assert) {
       let route = this.owner.lookup('route:forecast');
@@ -108,14 +265,14 @@ define('weather-app/tests/unit/routes/forecast-test', ['qunit', 'ember-qunit'], 
     });
   });
 });
-define('weather-app/tests/unit/routes/welcome-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+define('weather-app/tests/unit/routes/warning-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
   'use strict';
 
-  (0, _qunit.module)('Unit | Route | welcome', function (hooks) {
+  (0, _qunit.module)('Unit | Route | warning', function (hooks) {
     (0, _emberQunit.setupTest)(hooks);
 
     (0, _qunit.test)('it exists', function (assert) {
-      let route = this.owner.lookup('route:welcome');
+      let route = this.owner.lookup('route:warning');
       assert.ok(route);
     });
   });

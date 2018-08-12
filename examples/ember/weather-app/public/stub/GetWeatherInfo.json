@@ -1,0 +1,36 @@
+{
+    "city": "London",
+    "country": "UK",
+    "warnings": [
+        {
+            "description": "Heavy thunderstorm is expected between 06:00 Sat 28th and 19:00 Sat 28th. Danger to life from fast flowing or deep floodwater.",
+            "alertLevel": "red"
+        },
+        {
+            "description": "Heavy showers is expected between 06:00 Sat 26th and 19:00 Sat 27th.",
+            "alertLevel": "orange"
+        },
+        {
+            "description": "Rain is expected between 06:18 Sat 14th and 12:00 Sat 15th.",
+            "alertLevel": "yellow"
+        }
+    ],
+    "forecasts": [
+        {
+            "dayOfWeek": "Monday",
+            "weather": "Sunny",
+            "temp": 32,
+            "precipitation": "0%",
+            "humidity": "37%",
+            "wind": "8 mph"
+        },
+        {
+            "dayOfWeek": "Tuesday",
+            "weather": "Rainy",
+            "temp": 14,
+            "precipitation": "10%",
+            "humidity": "37%",
+            "wind": "20 mph"
+        }
+    ]
+}

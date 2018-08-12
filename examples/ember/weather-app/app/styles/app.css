@@ -1,11 +1,16 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+
+
 body {
-  background: url(/assets/images/bg.jpg);
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(/assets/images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #fff;
 }
-a {
-  color: #fff;
-}
+
 nav.forecastBtn {
   background-color: #133a74;
   padding: 10px;
@@ -35,15 +40,11 @@ nav.forecastBtn {
   background: url(/assets/images/sunny.png) no-repeat;
   background-size: 110px;
 }
-.warningRed {
-  background-color: #e43f16;
-  padding: 10px;
-  color: rgb(14, 10, 44);
+.orange {
+  color: #e43f16;
 }
-.warningYellow {
-  background-color: #eff311;
-  padding: 10px;
-  color: rgb(14, 10, 44);
+.yellow {
+  color: #eff311;
 }
 @media only screen and (max-width: 800px) {
   .box {

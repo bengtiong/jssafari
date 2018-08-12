@@ -10383,6 +10383,42 @@ define('@ember/test-helpers/wait-until', ['exports', '@ember/test-helpers/-utils
     });
   }
 });
+define('ember-cli-mirage/test-support/setup-mirage', ['exports', 'ember-cli-mirage/start-mirage', '@ember/test-helpers'], function (exports, _startMirage, _testHelpers) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = setupMirage;
+
+
+  //
+  // Used to set up mirage for a test. Must be called after one of the
+  // `ember-qunit` `setup*Test()` methods. It starts the server and sets
+  // `this.server` to point to it, and shuts the server down when the test
+  // finishes.
+  //
+  // NOTE: the `hooks = self` is for mocha support
+  //
+  function setupMirage(hooks = self) {
+    hooks.beforeEach(function () {
+      if (!this.owner) {
+        throw new Error('You must call one of the ember-qunit setupTest(),' + ' setupRenderingTest() or setupApplicationTest() methods before' + ' calling setupMirage()');
+      }
+
+      this.server = (0, _startMirage.default)(this.owner);
+    });
+
+    hooks.afterEach(function () {
+      return (0, _testHelpers.settled)().then(() => {
+        if (this.server) {
+          this.server.shutdown();
+          delete this.server;
+        }
+      });
+    });
+  }
+});
 define('ember-cli-qunit', ['exports', 'ember-qunit'], function (exports, _emberQunit) {
   'use strict';
 
@@ -11147,6 +11183,22 @@ define('ember-qunit/test-loader', ['exports', 'qunit', 'ember-cli-test-loader/te
    */
   function loadTests() {
     new TestLoader().loadModules();
+  }
+});
+define('ember-raf-scheduler/test-support/register-waiter', ['exports', 'ember-raf-scheduler'], function (exports, _emberRafScheduler) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = registerWaiter;
+  function registerWaiter() {
+    // We can't rely on the importable Ember since shims are no
+    // longer included by default, so use the global instance.
+    // eslint-disable-next-line
+    Ember.Test.registerWaiter(function () {
+      return _emberRafScheduler.default.jobs === 0;
+    });
   }
 });
 define('ember-test-helpers/has-ember-version', ['exports', '@ember/test-helpers/has-ember-version'], function (exports, _hasEmberVersion) {
