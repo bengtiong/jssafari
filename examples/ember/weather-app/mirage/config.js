@@ -100,8 +100,8 @@ export default function() {
         type: 'warnings',
         id: 'grand-old-mansion',
         attributes: {
-          description: 'Heavy showers is expected between 06:00 Sat 26th and 19:00 Sat 27th.',
-          alertlevel: 'orange'
+          description: 'Heavy thunderstorm is expected between 06:00 Sat 28th and 19:00 Sat 28th. Danger to life from fast flowing or deep floodwater.',
+          alertlevel: 'red'
         }
       }, 
       {

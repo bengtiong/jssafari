@@ -4,9 +4,13 @@
 body {
   background: url(images/bg.jpg);
 }
+
+.red {
+  color: red;
+}
 .orange {
-  color: #e43f16;
+  color: #fa941f;
 }
 .yellow {
-  color: #eff311;
+  color: #fded07;
 }
