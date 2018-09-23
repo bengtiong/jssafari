@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../service/weather.service';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-warning',
@@ -8,6 +9,7 @@ import { WeatherService } from '../service/weather.service';
 })
 export class WarningComponent implements OnInit {
 
+  faExclamationTriangle = faExclamationTriangle;
   Weather: any;
 
   constructor(private weatherService: WeatherService) { }
