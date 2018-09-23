@@ -19,7 +19,6 @@
                   <tr *ngFor="let warning of Weather.warnings">
                     <td className={{warning.alertLevel}}>
                         <fa-icon [icon]="faExclamationTriangle"></fa-icon>
-                      <i className="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
                     </td>
                     <td>{{warning.description}}</td>
                   </tr>
