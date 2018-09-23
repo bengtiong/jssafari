@@ -4,15 +4,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ForecastComponent } from './forecast/forecast.component';
 import { WeatherService } from './service/weather.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { WarningComponent } from './warning/warning.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ForecastComponent
+    ForecastComponent,
+    WarningComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent]
